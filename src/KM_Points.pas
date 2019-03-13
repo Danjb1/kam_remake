@@ -569,7 +569,9 @@ begin
   S := (-ABy * (A.x - C.x) + ABx * (A.y - C.y)) / D2;
   T := ( CDx * (A.y - C.y) - CDy * (A.x - C.x)) / D2;
 
-  Result := (S > 0) and (S < 1) and (T > 0) and (T < 1);
+  Result := (S > 0) and (S < 1) and (T > 0) and (T < 1)
+            and not IsNaN(S) and not IsNaN(T)
+            and not IsInfinite(S) and not IsInfinite(T);
 end;
 
 
@@ -586,7 +588,9 @@ begin
   S := (-ABy * (A.x - C.x) + ABx * (A.y - C.y)) / D2;
   T := ( CDx * (A.y - C.y) - CDy * (A.x - C.x)) / D2;
 
-  Result := (S >= 0) and (S <= 1) and (T >= 0) and (T <= 1);
+  Result := (S >= 0) and (S <= 1) and (T >= 0) and (T <= 1)
+            and not IsNaN(S) and not IsNaN(T)
+            and not IsInfinite(S) and not IsInfinite(T);
 end;
 
 
