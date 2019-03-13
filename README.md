@@ -1,9 +1,43 @@
-### About
+# :european_castle: KaM Remake Mod
 
-The KaM Remake mod is an attempt to reinvigorate the original “Knights and Merchants: The Shattered Kingdom” strategy game. Our goals are to make it work on today's computers and operating systems, implement a fully featured online multiplayer system, as well as to fix the many bugs in the game engine. To do this we have started from scratch, writing our own code for the game engine but still relying on many original resource files. We assume that you own the original KaM game, (the installer checks for it) otherwise you should buy it – it's available in a number of online gaming stores.
+A custom version of the open-source [KaM Remake](http://www.kamremake.com/about/).
 
-The KaM Remake executable is freeware and is built by enthusiasts. Applications used: Delphi 6 - XE2, FastMM4, Lazarus, OpenGL, OpenAL, Overbyte ICS, zLib, PNGImage, MadExcept, libZPlay.
+## Background
 
-#### Projects website
+ - [Official project](https://github.com/Kromster80/kam_remake) (r6720)
 
-<http://www.kamremake.com/about/>
+ - [Unofficial continuation](https://github.com/reyandme/kam_remake) ([changes](https://github.com/reyandme/kam_remake/blob/master/Todo/Buglist.txt))
+
+This is a fork of the game with the changes listed below.
+
+`master` builds on Krom's changes, and the branch `rey` builds on Rey's unofficial continuation.
+
+## Changes
+
+ - Trees no longer prevent buildings from being placed
+
+ - No online play (secure authentication unit is not available for unofficial game clients)
+
+## Build
+
+Based on the original instructions found [here](https://github.com/reyandme/kam_remake/wiki/ProjectCompilation).
+
+Projects can be compiled using [Delphi](https://www.embarcadero.com/products/delphi/starter), or [Lazarus](https://www.lazarus-ide.org/) with [FPC 3.0.0](https://sourceforge.net/projects/freepascal/files/Win32/3.0.0/).
+
+1. Copy `data` directory from *KaM: TPR* into project folder (don't overwrite).
+
+1. Copy `data/gfx/res/*.rx` to the `SpriteResource` directory.
+
+1. Open the `Utils/RXXPacker/RXXPacker.dpr` project and build.
+
+1. Run `RXXPacker.exe`, select all the available items and press "Pack to RXX File"; this converts all sprites to the required format and puts them in the `data/Sprites` directory.
+
+1. Open `KaM_Remake.dpr` and build.
+
+    > In Delphi, Shift + F9 performs a full build. This can sometimes resolve compilation errors.
+
+## Debugging
+
+To enable debugging, install [madExcept 5](http://www.madshi.net/madExceptDescription.htm) and edit `KaM_Remake.inc` to remove the dot from the line:
+
+    {.$DEFINE USE_MAD_EXCEPT}
