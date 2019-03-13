@@ -2,15 +2,7 @@
 
 A custom version of the open-source [KaM Remake](http://www.kamremake.com/about/).
 
-## Background
-
- - [Official project](https://github.com/Kromster80/kam_remake) (r6720)
-
- - [Unofficial continuation](https://github.com/reyandme/kam_remake) ([changes](https://github.com/reyandme/kam_remake/blob/master/Todo/Buglist.txt))
-
-This is a fork of the game with the changes listed below.
-
-`master` builds on Krom's changes, and the branch `rey` builds on Rey's unofficial continuation.
+This is a fork of the [official project](https://github.com/Kromster80/kam_remake) (r6720), with the changes listed below.
 
 ## Changes
 
