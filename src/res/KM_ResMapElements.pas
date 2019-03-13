@@ -35,6 +35,8 @@ type
     procedure ExportToText(const FileName: string);
   end;
 
+  function ObjectIsChoppableTree(aObjId: Integer): Boolean; overload;
+
 
 var
   //MapElem is in global access because of the recursive FloodFill algorithm
@@ -128,6 +130,11 @@ begin
   begin
     S.Read(gMapElements[I], ELEMENT_SIZE);
     gMapElements[I].KillByRoad := TKMKillByRoad(ObjKillByRoads[I]);
+
+    // Allow building over trees
+    if ObjectIsChoppableTree(I) then
+      gMapElements[I].CanBeRemoved := True;
+
   end;
   fCount := S.Size div ELEMENT_SIZE; //254 by default
   fCRC := Adler32CRC(S);
@@ -183,6 +190,21 @@ begin
     Writeln(ft);
   end;
   CloseFile(ft);
+end;
+
+
+function ObjectIsChoppableTree(aObjId: Integer): Boolean;
+var
+  I: Integer;
+  K: TKMChopableAge;
+begin
+  Result := True;
+
+  for I := 1 to Length(ChopableTrees) do
+    for K := Low(TKMChopableAge) to High(TKMChopableAge) do
+      if (aObjId = ChopableTrees[I,K]) then Exit;
+
+  Result := False;
 end;
 
 
