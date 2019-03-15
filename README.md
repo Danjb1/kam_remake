@@ -2,19 +2,19 @@
 
 A custom version of the open-source [KaM Remake](http://www.kamremake.com/about/).
 
-This is a fork of the [official project](https://github.com/Kromster80/kam_remake) (r6720), with the changes listed below.
+This is a fork of the [official project](https://github.com/Kromster80/kam_remake) (r6720+), with the changes listed below.
 
 ## Changes
 
  - Trees no longer prevent buildings from being placed
 
- - No online play (secure authentication unit is not available for unofficial game clients)
+ - Online play disabled (*secure authentication unit is not available for unofficial game clients*)
 
 ## Build
 
 Based on the original instructions found [here](https://github.com/reyandme/kam_remake/wiki/ProjectCompilation).
 
-Projects can be compiled using [Delphi](https://www.embarcadero.com/products/delphi/starter), or [Lazarus](https://www.lazarus-ide.org/) with [FPC 3.0.0](https://sourceforge.net/projects/freepascal/files/Win32/3.0.0/).
+Projects can be compiled using [Delphi](https://www.embarcadero.com/products/delphi/starter).
 
 1. Copy `data` directory from *KaM: TPR* into project folder (don't overwrite).
 
@@ -27,6 +27,12 @@ Projects can be compiled using [Delphi](https://www.embarcadero.com/products/del
 1. Open `KaM_Remake.dpr` and build.
 
     > In Delphi, Shift + F9 performs a full build. This can sometimes resolve compilation errors.
+
+## Run
+
+1. Download the [official game](https://www.kamremake.com/download/).
+
+2. Overwrite `KaM_Remake.exe` and `data/Sprites` with the files produced by the build steps, above.
 
 ## Debugging
 
